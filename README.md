@@ -13,7 +13,7 @@
 
 ### Clone & Setup
 
-git clone <your-repo-url>
+git clone https://github.com/mkrajashan/docker-event-booking.git
 cd event-booking-api
 Make sure DB settings in .env match docker-compose.yml
 
