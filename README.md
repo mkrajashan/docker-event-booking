@@ -13,9 +13,10 @@
 
 ### Clone & Setup
 
-git clone https://github.com/mkrajashan/docker-event-booking.git
-cd event-booking-api
-Make sure DB settings in .env match docker-compose.yml
+1. git clone https://github.com/mkrajashan/docker-event-booking.git
+2. cd event-booking-api
+3. docker-compose up -d --build
+4. Make sure DB settings in .env match docker-compose.yml
 
 ## DB config check in .env file
 DB_CONNECTION=mysql
@@ -35,10 +36,10 @@ http://127.0.0.1:8003/api/events
 http://127.0.0.1:8080
 if phpmyadmin is not working, then 
 
-use this docker command:-
+use this docker command to connect the DB instance and try with mysql -u root -p root:-
 docker exec -it event-booking-db bash
 
-## Setup DB
+## Migrate DB
 docker exec -it event-booking-app php artisan migrate
 
 ## Seed Data
