@@ -31,12 +31,19 @@ class EventController extends Controller
 
     public function update(UpdateEventRequest $request, Event $event)
     {
+        if ($event->user_id !== Auth::id()) {
+            return response()->json(['message' => 'Forbidden'], 403);
+        }
         $event->update(attributes: $request->validated());
         return $event;
     }
 
     public function destroy(Event $event)
     {
+        if ($event->user_id !== Auth::id()) {
+            return response()->json(['message' => 'Forbidden'], 403);
+        }
+        
         $event->delete();
         return response()->json(['message' => 'Event Deleted successfully'], 200);
     }

@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\{AuthController, EventController, BookingController, AttendeeController};
+use App\Http\Controllers\{AuthController, EventController, BookingController, AttendeeController, LocationController};
 use Illuminate\Support\Facades\Route;
 
 // Public auth routes
@@ -14,6 +14,8 @@ Route::apiResource('attendees', AttendeeController::class);
 // Public booking: create only
 Route::post('/bookings', [BookingController::class, 'store']);
 
+Route::apiResource('locations', LocationController::class);
+
 // Authenticated routes
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
@@ -22,5 +24,5 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('events', EventController::class)->only(['store', 'update', 'destroy']);
     
     // Manage bookings (auth)
-    Route::apiResource('bookings', BookingController::class)->only(['index', 'show', 'destroy']);
+    Route::apiResource('bookings', BookingController::class)->only(['index', 'show', 'destroy','update']);
 });

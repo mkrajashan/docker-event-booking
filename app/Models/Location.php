@@ -9,7 +9,7 @@ class Location extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['country'];
+    protected $fillable = ['name'];
 
     public function events() { return $this->hasMany(Event::class); }
 }

@@ -13,7 +13,7 @@ class BookingController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
+    {        
         return Booking::with(['event', 'attendee'])->get();
     }
 
@@ -27,6 +27,7 @@ class BookingController extends Controller
         if (!$booking) {
             return response()->json(['message' => 'Booking not found'], 404);
         }
+    
 
         return response()->json($booking);
     }
@@ -36,7 +37,7 @@ class BookingController extends Controller
             'attendee_id' => 'required|exists:attendees,id',
             'event_id' => 'required|exists:events,id',
         ]);
-    
+
         $event = Event::findOrFail($data['event_id']);
         if ($event->bookings()->count() >= $event->capacity) {
             return response()->json(['message' => 'Event full'], 400);
@@ -46,11 +47,16 @@ class BookingController extends Controller
     }
     
     public function update(Request $request, Booking $booking) {
-        return $booking;
+        $data = $request->validate([
+            'attendee_id' => 'required|exists:attendees,id',
+            'event_id' => 'required|exists:events,id',
+        ]);
+        $booking->update($data);
+        return response()->noContent();
     }
     
     public function destroy(Booking $booking) {
         $booking->delete();
-        return response()->json(['message' => 'Booking Deleted successfully'], 200);
+        return response()->noContent();
     }    
 }

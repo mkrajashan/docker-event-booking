@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreAttendeeRequest;
 use App\Models\Attendee;
+use Illuminate\Auth\Events\Validated;
 
 class AttendeeController extends Controller
 {
@@ -24,7 +25,6 @@ class AttendeeController extends Controller
     public function destroy(Attendee $attendee)
     {
         $attendee->delete();
-        #return response()->json(null, 204);
-        return response()->json(['message' => 'Attendees Deleted successfully'], 200);
+        return response()->json(null, 204);
     }
 }
