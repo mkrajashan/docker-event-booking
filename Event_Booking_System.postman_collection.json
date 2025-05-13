@@ -1,0 +1,597 @@
+{
+	"info": {
+		"_postman_id": "cb0c778a-a911-4394-9b65-12106b0b4d82",
+		"name": "Event_Booking_System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3325009",
+		"_collection_link": "https://dark-meteor-100710.postman.co/workspace/SCGP-Doozy~20d5a69a-aad9-4003-a9ae-3887152eb953/collection/3325009-cb0c778a-a911-4394-9b65-12106b0b4d82?action=share&source=collection_link&creator=3325009"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "mani",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "mani@mani.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "mani@12345",
+							"type": "text"
+						},
+						{
+							"key": "password_confirmation",
+							"value": "mani@12345",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8003/api/register",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8003",
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Bookings",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 2|cXSDrABlCeAad0tDjsIxP4LJmV0bSrAX8sQCGlUJdfe6e2b6",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8003/api/bookings",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8003",
+					"path": [
+						"api",
+						"bookings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Single Bookings",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 2|cXSDrABlCeAad0tDjsIxP4LJmV0bSrAX8sQCGlUJdfe6e2b6",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8003/api/bookings/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8003",
+					"path": [
+						"api",
+						"bookings",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Attendees",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 3|ECYAu8jGG01O54ivShmk9xoGTIjEkmd6TXeMJSy5021bd0f5",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"mani\",\n    \"email\": \"mani4@mani.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8003/api/attendees",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8003",
+					"path": [
+						"api",
+						"attendees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Events -  POST",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 2|cXSDrABlCeAad0tDjsIxP4LJmV0bSrAX8sQCGlUJdfe6e2b6",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Tech Conference 2025\",\n    \"description\": \"Annual technology conference for developers\",\n    \"date\": \"2024-11-15 09:00:00\",\n    \"location_id\": 1,\n    \"capacity\": 500\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8003/api/events",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8003",
+					"path": [
+						"api",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Events",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8003/api/events",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8003",
+					"path": [
+						"api",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "mani@mani.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "mani@12345",
+							"type": "text"
+						},
+						{
+							"key": "token",
+							"value": "1|gNqBEn4e3Bz475Xe8mGJmqOsDBzILZDwSqvnLhjife00f2c7",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8003/api/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8003",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Bookings - Post",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"attendee_id\":1,\n    \"event_id\":5\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8003/api/bookings",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8003",
+					"path": [
+						"api",
+						"bookings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Booking",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 3|ECYAu8jGG01O54ivShmk9xoGTIjEkmd6TXeMJSy5021bd0f5",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8003/api/bookings/3",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8003",
+					"path": [
+						"api",
+						"bookings",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Single Event",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8003/api/events/2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8003",
+					"path": [
+						"api",
+						"events",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Event",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 3|ECYAu8jGG01O54ivShmk9xoGTIjEkmd6TXeMJSy5021bd0f5",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"India 2025\",\n    \"description\": \"India Annual technology conference\",\n    \"date\": \"2024-11-15 09:00:00\",\n    \"location_id\": 1,\n    \"capacity\": 500\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8003/api/events/4",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8003",
+					"path": [
+						"api",
+						"events",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Event",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 3|ECYAu8jGG01O54ivShmk9xoGTIjEkmd6TXeMJSy5021bd0f5",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8003/api/events/4",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8003",
+					"path": [
+						"api",
+						"events",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Attendees",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8003/api/attendees",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8003",
+					"path": [
+						"api",
+						"attendees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Single Attendees",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8003/api/attendees/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8003",
+					"path": [
+						"api",
+						"attendees",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Attendees",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"mani s\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8003/api/attendees/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8003",
+					"path": [
+						"api",
+						"attendees",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
